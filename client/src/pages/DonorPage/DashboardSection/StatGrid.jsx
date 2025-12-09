@@ -1,4 +1,4 @@
-import StatCard from './StartCard'
+import StatCard from '../../../component/StatCard'
 import {Droplet, Heart, Users, Calendar} from "lucide-react"
 import { useState, useEffect } from 'react';
 const StatsGrid = () => {

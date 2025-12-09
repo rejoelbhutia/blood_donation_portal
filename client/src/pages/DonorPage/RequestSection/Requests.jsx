@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react"
-import MatchCard from "../DashboardSection/MatchCard"
+import MatchCard from "../../../component/MatchCard"
 import { useState } from "react"
 
 

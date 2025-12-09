@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const DashboardNav = () => {
+const DashboardNav = ({navitem1, navitem2, navitem3, navitem4, navitem5, navpath1, navpath2, navpath3, navpath4, navpath5}) => {
   
  
   // NavLink passes an object { isActive } to this function automatically
@@ -19,14 +19,14 @@ const DashboardNav = () => {
           
           <li className="mr-6">
             <NavLink to="" end className={getLinkClass}>
-              Dashboard
+              {navitem1}
             </NavLink>
           </li>
 
           <li className="mr-6">
             
-            <NavLink to="matched-requests" className={getLinkClass}>
-              Matched Requests
+            <NavLink to={navpath2} className={getLinkClass}>
+              {navitem2}
               <span className="ml-2 bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">
                 3
               </span>
@@ -34,20 +34,20 @@ const DashboardNav = () => {
           </li>
 
           <li className="mr-6">
-            <NavLink to="history" className={getLinkClass}>
-              My Donations
+            <NavLink to={navpath3} className={getLinkClass}>
+             {navitem3}
             </NavLink>
           </li>
 
           <li className="mr-6">
-            <NavLink to="appointment" className={getLinkClass}>
-              Appointments
+            <NavLink to={navpath4} className={getLinkClass}>
+              {navitem4}
             </NavLink>
           </li>
 
           <li className="mr-6">
-            <NavLink to="findCenters" className={getLinkClass}>
-              Find Centers
+            <NavLink to={navpath5} className={getLinkClass}>
+              {navitem5}
             </NavLink>
           </li>
           

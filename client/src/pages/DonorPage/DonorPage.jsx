@@ -1,32 +1,26 @@
-
-import DashboardHeader from '../../component/DashboardHeader';
-import DashboardNav from '../../component/DashboardNav';
-import Footer from '../landing_Page/Footer';
-import { Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-
-
-
-
+import DashboardHeader from "../../component/DashboardHeader";
+import DashboardNav from "../../component/DashboardNav";
+import Footer from "../../component/Footer";
+import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-
-    const [accountData, setAccountData] = useState({});
-
- 
+  const [accountData, setAccountData] = useState({});
 
   useEffect(() => {
     const getAccountData = async () => {
+      const token = localStorage.getItem("token");
 
-       const token = localStorage.getItem("token")
-     
       try {
-        const response = await fetch("http://localhost:8000/api/donor/account", {
-          method: "GET",
-          headers: {
-            "Authorization": `Bearer ${token}`
+        const response = await fetch(
+          "http://localhost:8000/api/donor/account",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        });
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -39,20 +33,29 @@ export default function Home() {
     };
     getAccountData();
   }, []);
-  
+
   return (
     <div className="min-h-screen bg-gray-100 font-inter">
-      <DashboardHeader portalName={"Donor"} bloogGroup={accountData?.userDetails?.bloodGroup} initial={accountData?.userDetails?.name?.charAt(0)} Name={accountData?.userDetails?.name?.split(" ")[0]}/>
-      <DashboardNav />
+      <DashboardHeader
+        portalName={"Donor"}
+        bloogGroup={accountData?.userDetails?.bloodGroup}
+        initial={accountData?.userDetails?.name?.charAt(0)}
+        Name={accountData?.userDetails?.name?.split(" ")[0]}
+      />
+      <DashboardNav
+        navitem1={"Dashboard"}
+        navitem2={"Matched Request"}
+        navitem3={"My Donations"}
+        navitem4={"Appointments"}
+        navitem5={"Find Centers"}
+        navpath1={"/"}
+        navpath2={"matched-requests"}
+        navpath3={"history"}
+        navpath4={"appointment"}
+        navpath5={"findCenters"}
+      />
       <main className="container mx-auto px-6 py-8">
-        
-         
-       
-
-        
-      
-      <Outlet />
-        
+        <Outlet />
       </main>
       <Footer />
     </div>

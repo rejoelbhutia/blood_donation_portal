@@ -4,7 +4,7 @@ import Hero from './Hero.jsx'
 import ImpactPage from './ImpactPage.jsx'
 import EligibilitySection from './EligibiitySection.jsx'
 import UserType from './UserType.jsx'
-import Footer from './Footer.jsx'
+import Footer from '../../component/Footer.jsx'
 
 
 

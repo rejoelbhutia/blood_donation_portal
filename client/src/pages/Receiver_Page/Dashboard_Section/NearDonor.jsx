@@ -1,13 +1,10 @@
-import MatchCard from "../../../component/MatchCard"
-import {ChevronRight} from "lucide-react"
+import React from 'react'
 
-
-const CriticalMatchesSection = () => (
-
-
-  <div className="mb-8">
+export default function NearDonor() {
+  return (
+      <div className="mb-8">
     <div className="flex justify-between items-center mb-6">
-      <h2 className="text-2xl font-bold text-gray-900">Critical Matches Near You</h2>
+      <h2 className="text-2xl font-bold text-gray-900">Compatable Donors Nearby</h2>
       <a href="#" className="text-red-600 font-medium flex items-center hover:underline">
         View All Matches (2) <ChevronRight className="w-4 h-4 ml-1" />
       </a>
@@ -36,6 +33,5 @@ const CriticalMatchesSection = () => (
       <MatchCard isPlaceholder={true} />
     </div>
   </div>
-);
-
-export default CriticalMatchesSection;
+  )
+}
