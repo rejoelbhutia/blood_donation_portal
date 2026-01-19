@@ -96,8 +96,10 @@ const getDonationHistory = async (req, res) => {
         const userId = req.user.id;
         const history = await Donation.find({ donatedBy: userId })
             .sort({ donationDate: -1 })
-            .populate('donatedTo', 'name email'); // Optional: populate receiver details if needed
+            .populate('donatedTo', 'name email'); 
 
+        // Debug log
+        console.log(`History for user ${userId}:`, history);
         res.status(200).json(history);
     } catch (error) {
         console.log("Error fetching history:", error);

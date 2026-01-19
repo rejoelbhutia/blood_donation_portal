@@ -8,7 +8,7 @@ import DonorPage from "./pages/DonorPage/DonorPage.jsx";
 import DashboardSection from "./pages/DonorPage/DashboardSection/DashboardSection.jsx";
 import Requests from './pages/DonorPage/RequestSection/Requests.jsx'
 import Request_Page from "./pages/Receiver_Page/Requests_Section/Request_Page.jsx";
-import HistorySection from "./pages/DonorPage/DonationHistory./HistorySection.jsx";
+import HistorySection from "./pages/DonorPage/DonationHistory/HistorySection.jsx";
 import Receiver_Page from "./pages/Receiver_Page/Receiver_Page.jsx";
 import Recepient_Dashboatd from "./pages/Receiver_Page/Dashboard_Section/Recepient_Dashboatd.jsx";
 import FindDonor from "./pages/Receiver_Page/FindDonor_Section/FindDonor.jsx";
@@ -31,7 +31,7 @@ export default function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
         </Route>
-        
+
         {/* Redirect old authPage or root to login if needed, or keep root as landing */}
         <Route path="/authPage" element={<Navigate to="/login" replace />} />
 

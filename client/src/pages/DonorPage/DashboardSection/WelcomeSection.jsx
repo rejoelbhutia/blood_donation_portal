@@ -49,7 +49,7 @@ const WelcomeSection = () => {
     return diffDays > 0 ? diffDays : 0;
   };
 
-  const daysRemaining = calculateDaysRemaining(accountData.stats.nextEligibleDate);
+  const daysRemaining = calculateDaysRemaining(accountData?.stats?.nextEligibleDate);
 
   return (
     <div className="bg-white shadow-sm rounded-lg p-6 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center">

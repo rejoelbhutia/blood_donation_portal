@@ -27,7 +27,12 @@ const donationSchema = new mongoose.Schema({
         type : Number,
         required : true
     },
-
+    place : {
+        type : String
+    },
+    reason : {
+        type: String
+    },
     status : {
         type : String,
         enum : ["completed", "pending"],
