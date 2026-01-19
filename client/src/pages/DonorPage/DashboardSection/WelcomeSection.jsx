@@ -31,8 +31,25 @@ const WelcomeSection = () => {
       }
     };
     console.log(accountData)
+    
     getAccountData();
+
+     
   }, []);
+
+   const calculateDaysRemaining = (nextDate) => {
+    if (!nextDate) return 0;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // normalize to start of day
+    const target = new Date(nextDate);
+    target.setHours(0, 0, 0, 0); // normalize to start of day
+
+    const diffTime = target - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays > 0 ? diffDays : 0;
+  };
+
+  const daysRemaining = calculateDaysRemaining(accountData.stats.nextEligibleDate);
 
   return (
     <div className="bg-white shadow-sm rounded-lg p-6 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center">
@@ -58,7 +75,7 @@ const WelcomeSection = () => {
         </button>
         <div className="flex items-center text-gray-600 text-sm">
           <Calendar className="w-4 h-4 mr-2" />
-          <span>Next donation in 38 days</span>
+          <span>{`Next donation in ${daysRemaining} days`}</span>
         </div>
       </div>
     </div>

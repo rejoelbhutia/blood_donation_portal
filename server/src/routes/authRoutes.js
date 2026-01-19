@@ -4,11 +4,14 @@ import {forgetPassword} from '../services/auth.services.js'
 import resetPassword from '../services/auth.resetPassword.js';
 
 
+
 const router = express.Router();
 
 router.post("/signup", registerUser);
 
 router.post("/signin", signIn)
+
+
 
 
 
