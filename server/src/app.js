@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import connectDb from './config/db.js';
 import authRoutes from './routes/authRoutes.js'
-import donorRoutes from "./routes/donorRoutes.js"
+import detailsRoutes from "./routes/detailsRoutes.js"
 import authMiddleware from "./middleware/authMiddleware.js"
 
 
@@ -19,7 +19,7 @@ app.use(cors({
 }));
 
 app.use("/api/auth", authRoutes)
-app.use("/api/donor", authMiddleware, donorRoutes)
+app.use("/api/details", authMiddleware, detailsRoutes)
 
 
 export default app;

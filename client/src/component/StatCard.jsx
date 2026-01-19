@@ -1,8 +1,8 @@
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, Heart } from "lucide-react";
 
 
 
-const StatCard = ({ title, value, icon: Icon, iconBgClass, iconColorClass, trend }) => (
+const StatCard = ({ title, value, icon: Icon = Heart, iconBgClass, iconColorClass, trend }) => (
   <div className="bg-white rounded-lg shadow-sm p-6 flex flex-col justify-between border border-gray-200">
     <div className="flex justify-between items-start mb-4">
       <h3 className="text-lg font-medium text-gray-600">{title}</h3>

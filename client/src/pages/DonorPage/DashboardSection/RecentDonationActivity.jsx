@@ -1,4 +1,4 @@
-import { Droplet, CheckCircle, Info } from "lucide-react";
+import { Droplet, CheckCircle, Info, } from "lucide-react";
 import { useState } from "react";
 
 

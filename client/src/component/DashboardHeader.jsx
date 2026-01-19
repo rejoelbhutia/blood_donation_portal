@@ -1,7 +1,10 @@
 import {Droplet, Bell} from "lucide-react"
 
 
-const DashboardHeader = ({portalName, bloogGroup, initial, Name, }) => (
+
+const DashboardHeader = ({portalName, bloogGroup, initial, Name, }) => {
+
+  return (
   <header className="bg-white shadow-sm py-4 border-b border-gray-200 sticky top-0 z-50">
     <div className="container mx-auto px-6 flex justify-between items-center">
       
@@ -28,6 +31,7 @@ const DashboardHeader = ({portalName, bloogGroup, initial, Name, }) => (
       </div>
     </div>
   </header>
-);
+  )
+};
 
 export default DashboardHeader;

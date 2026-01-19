@@ -3,7 +3,8 @@ import eyeClose from "../../assets/eyeClose.svg";
 import eyeOpen from "../../assets/eyeOpen.svg";
 import Button from "../../component/Button";
 import {useForm} from "react-hook-form"
-import {useNavigate} from "react-router-dom"
+import {useNavigate, Link} from "react-router-dom"
+import { motion } from "framer-motion";
 
 export default function LoginForm() { 
 
@@ -18,6 +19,8 @@ export default function LoginForm() {
   };
 
   const submitForm = async (formData) => {
+
+    
     try {
       const response = await fetch("http://localhost:8000/api/auth/signin", {
         method : "POST",
@@ -45,6 +48,14 @@ export default function LoginForm() {
       navigate("/pages/donor");
     }
 
+       if (response.ok && result.user.accountType === "receiver") {
+      localStorage.removeItem("token");
+       localStorage.setItem("token", result.user.token)
+    console.log("Signin Successfull ", result);
+    alert("loggedin Successfully")
+      navigate("/pages/receiver");
+    }
+
     } catch (error) {
       console.log("Error: ", error);
       alert("Error: ", error)
@@ -52,7 +63,13 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="flex flex-col gap-6 ">
+    <motion.div 
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 20 }}
+      transition={{ duration: 0.3 }}
+      className="flex flex-col gap-6 "
+    >
       <h1 className="  text-3xl md:text-4xl font-medium">Welcome back, comarade</h1>
       <form className=" flex flex-col gap-16 items-center " onSubmit={handleSubmit(submitForm)}>
         <input
@@ -86,8 +103,11 @@ export default function LoginForm() {
             <img src={seePassword ? eyeClose : eyeOpen} alt="image" />
           </button>
         </div>
-        <Button btnName={"Login"} btnColor={"bg-primar"} type={"submit"} textColor={"text-white"}/>
+        <div className="flex flex-col gap-2 items-center">
+            <Button btnName={"Login"} btnColor={"bg-primar"} type={"submit"} textColor={"text-white"}/>
+             <Link to="/forgot-password" className="text-sm text-blue-600 hover:underline">Forgot Password?</Link>
+        </div>
       </form>
-    </div>
+    </motion.div>
   );
 }

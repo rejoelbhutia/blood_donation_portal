@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
         unique: true,
         lowercase: true
     },
-    hash: {
+    hash: { // I assume this is your password field
         type: String,
         required: true,
         minLength: 6
@@ -39,9 +39,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
         required: true
+    },
+    
+    resetPasswordToken: {
+        type: String,
+        default: undefined
+    },
+    resetPasswordExpires: {
+        type: Date,
+        default: undefined
     }
-
-})
+});
 
 const User = mongoose.model("User", userSchema)
 export default User;

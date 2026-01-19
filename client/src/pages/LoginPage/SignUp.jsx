@@ -2,9 +2,10 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import eyeClose from "../../assets/eyeClose.svg";
 import eyeOpen from "../../assets/eyeOpen.svg";
-import Input from "../../component/Input"; 
 import Button from "../../component/Button"; 
 import { useNavigate } from "react-router-dom"
+import { motion } from "framer-motion";
+import Input from "../../component/Input";
 
 export default function SignUp() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -61,7 +62,13 @@ export default function SignUp() {
   };
 
   return (
-    <div className="signup-form flex flex-col items-center">
+    <motion.div 
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -20 }}
+      transition={{ duration: 0.3 }}
+      className="signup-form flex flex-col items-center"
+    >
       <h1 className="text-4xl">Create your account</h1>
 
       <form onSubmit={handleSubmit(submitForm)} className="flex flex-col items-center gap-5">
@@ -190,6 +197,6 @@ export default function SignUp() {
 
         <Button btnType="submit" btnColor="bg-primary" textColor="text-white" btnName="Create Account" />
       </form>
-    </div>
+    </motion.div>
   );
 }

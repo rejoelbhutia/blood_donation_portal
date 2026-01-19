@@ -13,7 +13,7 @@ const WelcomeSection = () => {
       
      
       try {
-        const response = await fetch("http://localhost:8000/api/donor/account", {
+        const response = await fetch("http://localhost:8000/api/details/account", {
           method: "GET",
           headers: {
             "Content-Type" : "application/json",
