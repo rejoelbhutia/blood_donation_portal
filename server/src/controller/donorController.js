@@ -107,4 +107,24 @@ const getDonationHistory = async (req, res) => {
     }
 };
 
-export { accountDetails, getDonationHistory, calculateProgress };
+const getCritcalMatches = async (req, res) => {
+    try {
+        const userId = req.user.id;
+
+        const user = await User.findById(userId);
+        const userBloodGroup = user?.bloodGroup;
+
+        const matchesNearYou = await User.find({bloodGroup: userBloodGroup});
+
+        return res.status(200).json({
+            success: true,
+            message: matchesNearYou});
+        
+        // const matchesNearYou = await User.find({bloodGroup})
+        
+    } catch (error) {
+        
+    }
+}
+
+export { accountDetails, getDonationHistory, calculateProgress, getCritcalMatches };
