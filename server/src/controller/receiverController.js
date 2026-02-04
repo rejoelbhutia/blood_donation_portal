@@ -1,4 +1,5 @@
 import Request from "../models/request.model.js";
+import geoCoder from "../utils/geoCoder.js";
 
 const createRequest = async (req, res) => {
   try {
@@ -29,6 +30,23 @@ const createRequest = async (req, res) => {
       });
     }
 
+    const loc = geoCoder(address);
+
+         if (!loc || loc.length === 0) {
+            return res.status(400).json({
+                success: false,
+                message: "Address cannot be found. Please try more specific address. "
+            })
+        }
+
+
+    const location = {
+      type: 'Point',
+      coordinates: [loc[0].longitude, loc[0].latitude], 
+      formattedAddress: loc[0].formattedAddress
+    }
+    
+
     const now = new Date();
     const expiresAt = new Date(now.getTime() + 24 * 60 * 60 * 1000);
 
@@ -40,6 +58,7 @@ const createRequest = async (req, res) => {
       unit,
       reason,
       address,
+      location,
       expiresAt,
       requester: req.user.id,
     });

@@ -55,6 +55,18 @@ const requestSchema = new mongoose.Schema({
             },
             message: "Expiry date must be in future"
         }
+    },
+    location: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            default: 'Point',
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
     }
 },
     {timestamps: true}
