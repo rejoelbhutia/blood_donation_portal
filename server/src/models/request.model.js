@@ -26,7 +26,7 @@ const requestSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    quantityNeeded: {
+    unit: {
         type: Number,
         required: true,
         min: 1
@@ -36,7 +36,7 @@ const requestSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    hospitalAddress: {
+    address: {
         type: String,
         required: true,
         trim: true

@@ -4,6 +4,7 @@ import connectDb from './config/db.js';
 import authRoutes from './routes/authRoutes.js'
 import detailsRoutes from "./routes/detailsRoutes.js"
 import authMiddleware from "./middleware/authMiddleware.js"
+import request from "./routes/request.js"
 
 
 
@@ -18,8 +19,9 @@ app.use(cors({
     credentials: true,
 }));
 
-app.use("/api/auth", authRoutes)
-app.use("/api/details", authMiddleware, detailsRoutes)
+app.use("/api/auth", authRoutes);
+app.use("/api/details", authMiddleware, detailsRoutes);
+app.use("/api/request", authMiddleware, request);
 
 
 export default app;

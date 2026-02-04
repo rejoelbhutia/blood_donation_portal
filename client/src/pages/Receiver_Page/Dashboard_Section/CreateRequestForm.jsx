@@ -88,10 +88,9 @@ const CreateRequestForm = ({ onClose, onSubmit }) => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all bg-white"
               >
                 <option value="">Select Condition</option>
-                <option value="Critical">Critical</option>
-                <option value="Urgent">Urgent</option>
-                <option value="Stable">Stable</option>
-                <option value="Maintenance">Maintenance</option>
+                <option value="critical">Critical</option>
+                <option value="urgent">Urgent</option>
+                <option value="stable">Stable</option>
               </select>
             </div>
           </div>
